@@ -36,3 +36,4 @@ For a more condenced version, check out [the readme of the dsame repo](https://g
 
 # Self-activating
 On may weather radios you can do something called self-activate, where you essentially feed your own audio instead of the radio audio into it. DO NOT transmit on the weather radio frequencies! A few notes: Make sure your radio is on channel 2. If it isn't working, adjust your volume until it sounds clear through the radio. If it still isn't working, change your SAME settings to any. The best way to do this is to have a mono 3.5mm jack to a single RCA connector. Plug the 3.5mm into your headphone jack and the RCA into the external antenna jack. There are a lot of other ways to do this with the PC port and the Ext. Alert port, but this seems to be the least work. Note: I have yet to test this.
+At some point I need to add the attention tone
