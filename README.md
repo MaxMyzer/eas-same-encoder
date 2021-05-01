@@ -18,3 +18,18 @@ EAS ENDEC.
 Please please please please PLEASE use this responsibly.  Did you just buy an old ENDEC on eBay and want to put it through its paces?  This is the script for you!
 
 Don't use this to hack / exploit anything.  I made this for funsies in a few hours.  Please use it accordingly.
+
+#USAGE
+[More about these perameters]https://en.wikipedia.org/wiki/Specific_Area_Message_Encoding#Header_format
+
+| --Argument      | -A   | Default  | Example | Function                                                             |
+|-----------------|------|----------|---------|----------------------------------------------------------------------|
+| --playaudiolive | -pal | -1       | 1       | Plays audio with command. Warning: Loud.                             |
+| --code          | -c   |          |         | If you wanted to copy and paste a code string, you can do that here. |
+| --org           | -o   | WXR      | PEP     | The organization in the SAME code                                    |
+| --event         | -e   | RWT      | TOR     | The event type                                                       |
+| --location      | -lo  |          |         | To paste an entire string of location codes, use this                |
+| --location00    | -l00 | 000000   |         | A location code                                                      |
+| --location**    | -l** |          |         | ** when between 01 and 30 are additional location codes              |
+| --time          | -t   | 0015     |         | How long the duration is.                                            |
+| --callsign      | -cs  | KEAX/NWS |         | Callsign of station broadcasting                                     |
