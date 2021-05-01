@@ -17,7 +17,7 @@ EAS ENDEC.
 
 Please please please please PLEASE use this responsibly.  Did you just buy an old ENDEC on eBay and want to put it through its paces?  This is the script for you!
 
-Don't use this to hack / exploit anything.  I made this for funsies in a few hours.  Please use it accordingly.
+Don't use this to hack / exploit anything. Please use it accordingly.
 
 # Installation
 To Run: `python3 <location of same.py> <args>`
@@ -55,6 +55,7 @@ For a more condenced version, check out [the readme of the dsame repo](https://g
 | --location00    | -l00 | 000000   |         | A location code                                                      |
 | --location**    | -l** |          |         | ** when between 01 and 30 are additional location codes              |
 | --time          | -t   | 0015     |         | How long the duration is.                                            |
+| --issued          | -i   | now     | 1100420        | Current date/time. DDDHHMM UTC format. (day is day of year out of 365 or 366). If left blank, it will be the current time.                                          |
 | --callsign      | -cs  | KEAX/NWS |         | Callsign of station broadcasting                                     |
 
 # Self-activating

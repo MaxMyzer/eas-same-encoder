@@ -7,6 +7,10 @@ import subprocess # to play the resulting wave file
 import datetime # EAS alerts are heavily dependent on timestamps so this makes it easy to send a thing now
 import argparse
 
+# EAS alerts are heavily dependent on timestamps so this makes it easy/fun to send a thing now
+sameCompatibleTimestamp = datetime.datetime.now().strftime("%j%H%M")
+
+
 # parse command-line arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("--code", "-c", nargs='?', default="")
@@ -48,6 +52,7 @@ parser.add_argument("--location28", "-l28", nargs='?', default=None)
 parser.add_argument("--location29", "-l29", nargs='?', default=None)
 parser.add_argument("--location30", "-l30", nargs='?', default=None)
 parser.add_argument("--time", "-t", nargs='?', default="0015")
+parser.add_argument("--issued", "-i", nargs='?', default=sameCompatibleTimestamp)
 parser.add_argument("--callsign", "-cs", nargs='?', default="KEAX/NWS")
 args = parser.parse_args()
 ######## CONFIG / constants ########
@@ -145,10 +150,6 @@ def preamble():
 # CombinedTone =
 
 
-
-# EAS alerts are heavily dependent on timestamps so this makes it easy/fun to send a thing now
-sameCompatibleTimestamp = datetime.datetime.now().strftime("%j%H%M")
-
 LocationList = ""
 # arguments are location.00 to location.30
 if args.location != None:
@@ -164,7 +165,7 @@ else:
 if LocationList == "":
 	LocationList = "000000"
 print(LocationList)
-code = "ZCZC" + "-" + args.org + "-" + args.event + "" + LocationList + "+" + args.time +  "-" + sameCompatibleTimestamp + "-" + args.callsign + "-"
+code = "ZCZC" + "-" + args.org + "-" + args.event + "" + LocationList + "+" + args.time +  "-" + args.issued + "-" + args.callsign + "-"
 if args.code != "" and args.code != None and args.code != " ":
 	code = args.code
 
