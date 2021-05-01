@@ -31,9 +31,7 @@ For a more condenced version, check out [the readme of the dsame repo](https://g
 | --Argument      | -A   | Default  | Example | Function                                                             |
 |-----------------|------|----------|---------|----------------------------------------------------------------------|
 | --playaudiolive | -pal | -1       | 1       | Plays audio with command. Warning: Loud.                             |
----|
 | --attention | -as | 0       | 1       | 1 = single tone (1050hz), 2 = duel tone (853hz and 960hz)                             |
----|
 | --attentionlength | -al | 8       | 1       | How many seconds to play the attention signal                          |
 | --code          | -c   |          |         | If you wanted to copy and paste a code string, you can do that here. |
 | --org           | -o   | WXR      | PEP     | The organization in the SAME code                                    |
