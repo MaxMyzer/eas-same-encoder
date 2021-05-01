@@ -1,5 +1,6 @@
 import numpy as np
 from scipy.io import wavfile
+# import audiogen
 import random
 import sys
 import subprocess # to play the resulting wave file
@@ -9,6 +10,8 @@ import argparse
 # parse command-line arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("--code", "-c", nargs='?', default="")
+parser.add_argument("--attention", "-as", nargs='?', default='0')
+parser.add_argument("--attentionlength", "-al", nargs='?', default=8)
 parser.add_argument("--playaudiolive", "-pal", nargs='?', default=-1)
 parser.add_argument("--org", "-o", nargs='?', default="WXR")
 parser.add_argument("--event", "-e", nargs='?', default="RWT")
@@ -59,7 +62,6 @@ print (args)
 
 
 fs = 43750
-
 # t = 1.0 / (520 + (5/6))
 
 
@@ -94,7 +96,6 @@ def spaceBit():
 
 
 signal = np.zeros(20000)
-
 
 def byte(the_byte):
 	sys.stdout.write(the_byte)
@@ -140,6 +141,10 @@ def preamble():
 
 	return byte_data
 
+# SingleTone =
+# CombinedTone =
+
+
 
 # EAS alerts are heavily dependent on timestamps so this makes it easy/fun to send a thing now
 sameCompatibleTimestamp = datetime.datetime.now().strftime("%j%H%M")
@@ -171,23 +176,35 @@ for i in range(0, 3):
 	# turn each character into a sequence of sine waves
 	for char in code:
 		signal = np.append(signal, byte(char))
-
+	signal = np.append(signal, np.zeros(43750)) # wait the requisite one second
 	# signal = np.append(signal, extramarks(6)) # ENDEC might not be as picky about this as I once thought
 
-	signal = np.append(signal, np.zeros(43750)) # wait the requisite one second
 
-
+sampleRate = 43750
+length = np.linspace(0, args.attentionlength, sampleRate * args.attentionlength)
+tonesamples = length # (np.arange(length * sampleRate)/sampleRate)
+SingleTone = 1050
+CombinedTone = [853, 960]
+attn = np.zeros(20000)
+tones = np.zeros(43750*8)
+if args.attention != 0:
+	if args.attention == '1':
+		tones = np.sin(2 * np.pi * SingleTone * tonesamples)
+	elif args.attention == '2':
+		tones = np.sin(2 * np.pi * CombinedTone[0] * tonesamples) + np.sin(2 * np.pi * CombinedTone[1] * tonesamples)
+	attn = np.append(attn, tones*0.8)
+eom = np.zeros(20000)
 # EOM (3x)
 for i in range(0, 3):
 	# signal = np.append(signal, extramarks(10))
-	signal = np.append(signal, preamble())
+	eom = np.append(eom, preamble())
 
 	for char in "ZCZCNNNN": # NNNN = End Of Message
-		signal = np.append(signal, byte(char))
+		eom = np.append(eom, byte(char))
 
 	# signal = np.append(signal, extramarks(6))
 
-	signal = np.append(signal, np.zeros(43750)) # wait the requisite one second
+	eom = np.append(eom, np.zeros(43750)) # wait the requisite one second
 
 
 
@@ -196,7 +213,13 @@ signal *= 32767
 signal = np.int16(signal)
 
 wavfile.write(str("same.wav"), fs, signal)
+if args.attention != 0:
+	wavfile.write(str("attention.wav"), sampleRate, attn)
+wavfile.write(str("eom.wav"), fs, eom)
 
 
 if args.playaudiolive == "1":
 	subprocess.call("afplay same.wav", shell=True)
+	if args.attention != 0:
+		subprocess.call("afplay attention.wav", shell=True)
+	subprocess.call("afplay eom.wav", shell=True)

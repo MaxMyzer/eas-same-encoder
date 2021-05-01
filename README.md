@@ -20,14 +20,14 @@ Please please please please PLEASE use this responsibly.  Did you just buy an ol
 Don't use this to hack / exploit anything.  I made this for funsies in a few hours.  Please use it accordingly.
 
 # Installation
-To Run: `python3 <location of same.py> <args>` 
-  
+To Run: `python3 <location of same.py> <args>`
+
   OR: `cd <directory of git folder>` THEN `python3 same.py <args>`
 
-Install: 
+Install:
   Download this repo and unzip (You only actually need [same.py](https://raw.githubusercontent.com/MaxMyzer/eas-same-encoder/master/same.py), you can just download that if you want)
-  
-Install Python3 
+
+Install Python3
   - Windows: `python3` then install from Microsoft Store.
   - Linux and MacOS: `sudo apt update && sudo apt-get install python3`
 
@@ -36,7 +36,7 @@ Install dependencies: Single command version: `pip3 install --upgrade pip && pip
   - `pip3 install <dependency>`
      -  numpy
      -  scipy
- You should now be ready to run it. 
+ You should now be ready to run it.
 
 # USAGE
 [More about these perameters](https://en.wikipedia.org/wiki/Specific_Area_Message_Encoding#Header_format).
@@ -44,6 +44,10 @@ For a more condenced version, check out [the readme of the dsame repo](https://g
 | --Argument      | -A   | Default  | Example | Function                                                             |
 |-----------------|------|----------|---------|----------------------------------------------------------------------|
 | --playaudiolive | -pal | -1       | 1       | Plays audio with command. Warning: Loud.                             |
+---|
+| --attention | -as | 0       | 1       | 1 = single tone (1050hz), 2 = duel tone (853hz and 960hz)                             |
+---|
+| --attentionlength | -al | 8       | 1       | How many seconds to play the attention signal                          |
 | --code          | -c   |          |         | If you wanted to copy and paste a code string, you can do that here. |
 | --org           | -o   | WXR      | PEP     | The organization in the SAME code                                    |
 | --event         | -e   | RWT      | TOR     | The event type                                                       |
