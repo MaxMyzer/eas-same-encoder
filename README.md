@@ -19,9 +19,9 @@ Please please please please PLEASE use this responsibly.  Did you just buy an ol
 
 Don't use this to hack / exploit anything.  I made this for funsies in a few hours.  Please use it accordingly.
 
-#USAGE
-[More about these perameters]https://en.wikipedia.org/wiki/Specific_Area_Message_Encoding#Header_format
-
+# USAGE
+[More about these perameters](https://en.wikipedia.org/wiki/Specific_Area_Message_Encoding#Header_format).
+For a more condenced version, check out [the readme of the dsame repo](https://github.com/cuppa-joe/dsame/blob/master/README.md)
 | --Argument      | -A   | Default  | Example | Function                                                             |
 |-----------------|------|----------|---------|----------------------------------------------------------------------|
 | --playaudiolive | -pal | -1       | 1       | Plays audio with command. Warning: Loud.                             |
