@@ -19,6 +19,25 @@ Please please please please PLEASE use this responsibly.  Did you just buy an ol
 
 Don't use this to hack / exploit anything.  I made this for funsies in a few hours.  Please use it accordingly.
 
+# Installation
+To Run: `python3 <location of same.py> <args>` 
+  
+  OR: `cd <directory of git folder>` THEN `python3 same.py <args>`
+
+Install: 
+  Download this repo and unzip (You only actually need [same.py](https://raw.githubusercontent.com/MaxMyzer/eas-same-encoder/master/same.py), you can just download that if you want)
+  
+Install Python3 
+  - Windows: `python3` then install from Microsoft Store.
+  - Linux and MacOS: `sudo apt update && sudo apt-get install python3`
+
+Install dependencies: Single command version: `pip3 install --upgrade pip && pip3 install numpy && pip3 install scipy`
+  - `pip3 install --upgrade pip`
+  - `pip3 install <dependency>`
+     -  numpy
+     -  scipy
+ You should now be ready to run it. 
+
 # USAGE
 [More about these perameters](https://en.wikipedia.org/wiki/Specific_Area_Message_Encoding#Header_format).
 For a more condenced version, check out [the readme of the dsame repo](https://github.com/cuppa-joe/dsame/blob/master/README.md)
