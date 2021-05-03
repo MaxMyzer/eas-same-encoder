@@ -27,7 +27,7 @@ Install dependencies: Single command version: `pip3 install --upgrade pip && pip
 
 ## USAGE
 [More about these perameters](https://en.wikipedia.org/wiki/Specific_Area_Message_Encoding#Header_format).
-For a more condenced version, check out [the readme of the dsame repo](https://github.com/cuppa-joe/dsame/blob/master/README.md)
+For a more condenced version, check out [the readme of the dsame repo](https://github.com/cuppa-joe/dsame/blob/master/README.md). You can also use the [NWS API](https://api.weather.gov/) by clicking one, pressing "try", and either using the command or simply going to the URL in your browser. Please note not all [Product types](https://api.weather.gov/products/types) are [alerts](https://api.weather.gov/alerts/types), but you can compare them to get usable codes. 
 | --Argument      | -A   | Default  | Example | Function                                                             |
 |-----------------|------|----------|---------|----------------------------------------------------------------------|
 | --playaudiolive | -pal | -1       | 1       | Plays audio with command. Warning: Loud.                             |
@@ -48,5 +48,5 @@ On may weather radios you can do something called self-activate, where you essen
 
 ## A note to creators:
 This is a good way to do cool things. I can see it being used in EAS scenerios and other cool projects.
-IF you use this for use in projects (eg; videos), I would appreciate credit via a link in description. 
+IF you use this for use in projects (eg; videos), I would appreciate credit via a link in description.
 I have seen a lot of similar things that only work on some platforms, so when I finally found something close to what I wanted in python, I forked it so I could improve on it. I just don't want others to have to have to search for hours to find how to do this kind of thing after seeing it in a video. I'm not going to do anything if you don't include a credit. I didn't write the code this is based on, and the specifcations are government documents. I just think that many people would appreciate knowing how to do what you did.
